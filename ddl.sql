@@ -105,23 +105,6 @@ CREATE TABLE IF NOT EXISTS `Purchase_details` (
 );
 
 
-CREATE TABLE IF NOT EXISTS `Promotion` (
-	`pro_id` INTEGER NOT NULL AUTO_INCREMENT,
-	`start_date` DATETIME NOT NULL,
-	`end_date` DATETIME NOT NULL,
-	`reason` MEDIUMTEXT NOT NULL,
-	PRIMARY KEY(`pro_id`)
-);
-
-
-CREATE TABLE IF NOT EXISTS `Promotion_details` (
-	`pro_id` INTEGER NOT NULL,
-	`goods_id` INTEGER NOT NULL,
-	`price` INTEGER UNSIGNED NOT NULL,
-	PRIMARY KEY(`pro_id`, `goods_id`)
-);
-
-
 ALTER TABLE `Order`
 ADD FOREIGN KEY(`staff_id`) REFERENCES `Staff`(`staff_id`)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
@@ -154,9 +137,6 @@ ADD FOREIGN KEY(`goods_id`) REFERENCES `Invertory`(`goods_id`)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE `Purchase_details`
 ADD FOREIGN KEY(`goods_id`) REFERENCES `Invertory`(`goods_id`)
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE `Order_details`
-ADD FOREIGN KEY(`pro_id`) REFERENCES `Promotion`(`pro_id`)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE `login_info`
 ADD FOREIGN KEY(`staff_id`) REFERENCES `Staff`(`staff_id`)
