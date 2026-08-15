@@ -7,7 +7,7 @@
 ## 使用的程式及工具
 
 資料庫：MySQL\
-後端：Flask（語言 Python）\
+後端：php\
 前端：PHP\
 其他工具：Docker
 
