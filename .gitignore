@@ -219,6 +219,5 @@ __marimo__/
 
 # Other tools
 seed_gen_tools.py.claude/settings.local.json
-
 .claude/
-.testdata/
+vendor/
