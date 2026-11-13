@@ -5,7 +5,7 @@ require_once __DIR__ .'/../db.php';
 方便分辨不同error
 - NotFoundError: 不存在
 - AuthError: 沒有權限
-- ValidationError: 驗證錯誤
+- ValidationError: 無效輸入, e.g. 輸入格式錯誤、必填的欄位是空白的
 */
 class NotFoundError extends Exception {}
 class AuthError extends Exception {}
@@ -21,7 +21,7 @@ header("Access-Control-Max-Age: 3000");
 header('Content-Type: application/json; charset=utf-8');
 
 // 處理CORS preflight request
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+if($_SERVER['REQUEST_METHOD'] === 'OPTIONS'){
     http_response_code(204);
     exit;
 }
@@ -41,7 +41,6 @@ set_exception_handler(function (Throwable $e) {
     }
     $error_msg = [
         "error" => $e->getMessage(),
-        "status code" =>$e->getCode(),
         ];
     echo json_encode($error_msg, JSON_UNESCAPED_UNICODE);
 });
