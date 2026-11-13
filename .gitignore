@@ -218,4 +218,7 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Other tools
-seed_gen_tools.py
+seed_gen_tools.py.claude/settings.local.json
+
+.claude/
+.testdata/
